@@ -18,7 +18,10 @@
     },
     "files": [
         {
-            "path": "buildAndReleaseTask"
+            "path": "index.js"
+        },
+        {
+            "path": "script.ps1"
         }
     ],
     "contributions": [
@@ -29,8 +32,12 @@
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "buildAndReleaseTask"
+                "name": "getazurefunctionkey"
             }
         }
-    ]
+    ],
+    "repository":{
+        "type": "git",
+        "uri": "https://github.com/ensilog/ado-get-function-key"
+    }
 }
