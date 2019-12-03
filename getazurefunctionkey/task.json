@@ -43,11 +43,8 @@
         },
         {
             "name": "azureServerFarm",
-            "type": "pickList",
+            "type": "string",
             "label": "Azure function",
-            "properties": {
-                "editableOptions": "True"
-            },
             "required": true,
             "helpMarkDown": "Select a root Azure function to get the key from"
         },
@@ -66,13 +63,6 @@
             "required": true,
             "helpMarkDown": "Name of the environment variables that will be set with the key",
             "defaultValue": "functionKey"
-        }
-    ],
-    "dataSourceBindings": [
-        {
-            "target": "azureServerFarm",
-            "endpointId": "$(connectedServiceNameARM)",
-            "dataSourceName": "AzureFunctionRM"
         }
     ],
     "execution": {

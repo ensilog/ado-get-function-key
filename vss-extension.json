@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "getazurefunctionkey",
     "name": "Get Azure function key",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "publisher": "Ensilog",
     "targets": [
         {
@@ -17,6 +17,9 @@
         "default": "images/extension-icon.png"
     },
     "files": [
+        {
+            "path": "getazurefunctionkey"
+        },
         {
             "path": "index.js"
         },
