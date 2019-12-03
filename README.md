@@ -1,0 +1,1 @@
+# Azure DevOps extension to get Azure function key inside a pipeline (build or release)
