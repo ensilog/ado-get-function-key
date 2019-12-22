@@ -2,8 +2,12 @@
     "manifestVersion": 1,
     "id": "getazurefunctionkey",
     "name": "Get Azure function key",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "publisher": "Ensilog",
+    "galleryFlags": [
+        "Preview"
+    ],
+    "public": true,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
@@ -14,19 +18,18 @@
         "Azure Pipelines"
     ],
     "icons": {
-        "default": "images/extension-icon.png"
+        "default": "images/extension-icon-big.png"
     },
     "files": [
         {
             "path": "getazurefunctionkey"
-        },
-        {
-            "path": "index.js"
-        },
-        {
-            "path": "script.ps1"
         }
     ],
+    "content": {
+        "details": {
+            "path": "overview.md"
+        }
+    },
     "contributions": [
         {
             "id": "custom-build-release-task",
@@ -39,7 +42,7 @@
             }
         }
     ],
-    "repository":{
+    "repository": {
         "type": "git",
         "uri": "https://github.com/ensilog/ado-get-function-key"
     }

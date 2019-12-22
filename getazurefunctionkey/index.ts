@@ -23,7 +23,7 @@ export class GetFunctionKeyTask {
                 .arg('-ExecutionPolicy')
                 .arg('Unrestricted')
                 .arg('-Command')
-                .arg(`. script.ps1`)
+                .arg(`. '${__dirname}/script.ps1'`)
 
             var connectedService: string = tl.getInput("connectedServiceNameARM", true);
 
@@ -37,7 +37,7 @@ export class GetFunctionKeyTask {
             var functionKeyName: string = tl.getInput('outputVariableName', true);
 
             tool.exec({
-                failOnStdErr: true,
+                failOnStdErr: false,
                 outStream: null,
                 errStream: null,
                 env: {
@@ -51,14 +51,21 @@ export class GetFunctionKeyTask {
                         functionKeyName: functionKeyName
                     }
                 }
-            });
-
-            tl.setResult(tl.TaskResult.Succeeded, "Key fetched from Azure function")
+            }).catch(reason => {
+                tl.setResult(tl.TaskResult.Failed, reason);
+            })
+                .then(() => {
+                    tl.setResult(tl.TaskResult.Succeeded, "Key fetched from Azure function")
+                })
+                .finally(() => {
+                    //Logout of Azure if logged in
+                    if (this.isLoggedIn) {
+                        this.logoutAzure();
+                    }
+                });
         }
         catch (err) {
             tl.setResult(tl.TaskResult.Failed, err.message);
-        }
-        finally {
             //Logout of Azure if logged in
             if (this.isLoggedIn) {
                 this.logoutAzure();

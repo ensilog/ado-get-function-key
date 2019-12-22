@@ -9,7 +9,7 @@
     "author": "Ensilog",
     "version": {
         "Major": 0,
-        "Minor": 1,
+        "Minor": 2,
         "Patch": 0
     },
     "instanceNameFormat": "Get the $(functionfarm) $(functionname) key",
