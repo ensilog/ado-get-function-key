@@ -13,4 +13,4 @@ else {
     throw "Unknown key type to get $env:keyType"
 }
 
-Write-Host "##vso[task.setvariable variable=$env:functionKeyName;]$keyToOutput"
+Write-Host "##vso[task.setvariable variable=$env:functionKeyName;issecret=true]$keyToOutput"
